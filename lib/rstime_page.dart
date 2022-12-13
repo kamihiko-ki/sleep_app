@@ -13,6 +13,7 @@ class _RstimePageState extends State<RstimePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('ひつようなすいみんじかん'),
         backgroundColor: Colors.black,
       ),

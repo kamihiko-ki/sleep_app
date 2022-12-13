@@ -39,10 +39,18 @@ dependencies:
   charts_flutter: 0.12.0 #公式のpub.devからバージョンごとコピーして、cupertino_iconsのラインに合わせてペーストして、上のPub getボタンを押す→コードを書いてimport
   firebase_core: ^2.1.1
   google_sign_in: 5.4.2
-
+  firebase_auth: ^4.1.5
   flutter_datetime_picker: ^1.5.1
   intl: ^0.17.0
   cloud_firestore: ^4.1.0
+  font_awesome_flutter: ^10.3.0
+  flutter_gradients: ^1.0.0+3
+  new_gradient_app_bar: ^0.2.0
+  gap: ^2.0.1
+  shared_preferences: ^2.0.15
+  google_fonts: ^3.0.1
+  slide_to_act: ^2.0.1
+
   #Pubgetしたものをコメントアウトしたあとに、コメントアウトしてからもう一度Pubgetすれば元に戻せる
 
 dev_dependencies:

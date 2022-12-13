@@ -14,6 +14,14 @@
       },
       "oauth_client": [
         {
+          "client_id": "445454609004-d7ccgm5alnsb9bof59segvqrb2u16rnj.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.sleep_app",
+            "certificate_hash": "d66333b1b006d6838fe373ecb8530db6b1e6414d"
+          }
+        },
+        {
           "client_id": "445454609004-1bb4ad2u199p9mp9vrhebcp3kha0dagn.apps.googleusercontent.com",
           "client_type": 3
         }

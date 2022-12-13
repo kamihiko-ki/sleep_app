@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:sleep_app/count.dart';
-import 'package:sleep_app/src/screens/home_page.dart';
-import 'package:sleep_app/src/screens/sleep_page.dart';
+import 'package:sleep_app/sign_in_page.dart';
+//import 'package:sleep_app/sign_in_page.dart';
 import 'package:sleep_app/src/screens/timepicker_page.dart';
+
+//import '../sign_in_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -18,7 +20,8 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: MyHomePage(), //ここでホームの設定していて、別画面の作成にはクラスなどを作成しておかなければならない。
+      home:
+       SignInPage(), //MyHomePage(), //ここでホームの設定していて、別画面の作成にはクラスなどを作成しておかなければならない。
     );
   }
 }
@@ -31,10 +34,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  static const _screens = [
-    HomePage(),
+  static final _screens = <dynamic>[
+    //[]がファイル
+    //constが再代入不可能だから、色みたいな決まってるもの　finalはdatatime型みたいな変わるもの
+    // HomePage(
+    //   sleep: null,
+    //   wakeup: null,
+    // ), //名前付き引数でaddのエラーが出ていたら、値はstring型が(sleep:'', wakeup:''),int型は(sleep:0, wakeup:0)といったようにシングルクォーテーションか0を入れておく
     TimePickerPage(),
-    SleepPage(),
+    // SleepPage(),
     CountPage(
       title: 'Flutter Datepicker Sample',
     ) //ページを記述して作成してからココに増やす
@@ -56,15 +64,18 @@ class _MyHomePageState extends State<MyHomePage> {
           currentIndex: _selectedIndex,
           onTap: _onItemTapped,
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
+            //  BottomNavigationBarItem(icon: Icon(Icons.home), label: 'ホーム'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.access_time), label: 'お気に入り'),
+            //   BottomNavigationBarItem(
+            //       icon: FaIcon(FontAwesomeIcons.moon), label: '計算'),
             BottomNavigationBarItem(
                 icon: Icon(Icons.airline_seat_individual_suite_rounded),
                 label: '睡眠'),
-            BottomNavigationBarItem(icon: Icon(Icons.favorite), label: '計算'),
           ],
           type: BottomNavigationBarType.fixed,
+          selectedItemColor: Colors.black,
+          //backgroundColor: Color(0xff9941d8),
         ));
   }
 }

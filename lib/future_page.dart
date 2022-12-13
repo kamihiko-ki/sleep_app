@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 
 class FuturePage extends StatefulWidget {
-  const FuturePage({Key? key, required this.painPart}) : super(key: key);
+  const FuturePage({Key? key, required this.painPart, required this.wineTime})
+      : super(key: key);
   final int painPart; //finalはもう変える気はないですよと鍵をかけるイメージ。constとfinalは定数。
+  final int wineTime;
 
   @override
   State<FuturePage> createState() => _FuturePageState();
@@ -13,6 +15,7 @@ class _FuturePageState extends State<FuturePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        centerTitle: true,
         title: Text('すいみんよほう'),
         backgroundColor: Colors.deepPurple,
       ),
