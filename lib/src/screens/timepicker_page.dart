@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:sleep_app/sign_out_page.dart';
 import 'package:sleep_app/src/screens/bed_page.dart';
 import 'package:sleep_app/src/screens/how_to.dart';
 import 'package:sleep_app/src/screens/needtime_page.dart';
@@ -149,6 +150,14 @@ class _TimePickerPageState extends State<TimePickerPage> {
                   // この中にメニューをタップした時の処理を記述する
                   Navigator.push(context,
                       MaterialPageRoute(builder: (context) => HowTo()));
+                },
+              ),
+              ListTile(
+                title: const Text("ログアウト"),
+                onTap: () {
+                  // この中にメニューをタップした時の処理を記述する
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => SignInOutPage()));
                 },
               ),
               ListTile(
