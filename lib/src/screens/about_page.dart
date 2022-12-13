@@ -1,23 +1,23 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 
-class HowTo extends StatefulWidget {
+class AboutPage extends StatefulWidget {
   //２.StatefulWidgetの赤くなっている部分を推して電球マークからmaterial.dartをインポート
   //3.～PageをRefactarでRenameする。（今回はSleepPage）
-  const HowTo({Key? key}) : super(key: key);
+  const AboutPage({Key? key}) : super(key: key);
 
   @override
-  State<HowTo> createState() => _HowToState();
+  State<AboutPage> createState() => AboutPageState();
 }
 
-class _HowToState extends State<HowTo> {
+class AboutPageState extends State<AboutPage> {
   Widget build(BuildContext context) {
     //0.File→New→DartFileでNewDartFileを行って準備
     //１.importの下を別画面から全部コピー→Scaffoldの部分まで消す→もう一度Scaffoldの作成（これはあくまで覚えていない場合だから、appbar等を消さないのもOK）
     return Scaffold(
       appBar: AppBar(
         centerTitle: true,
-        title: Text('アプリについて',
+        title: Text('睡眠について',
             textAlign: TextAlign.center,
             style: GoogleFonts.passionsConflict(
               color: Colors.grey[600],
@@ -48,13 +48,20 @@ class _HowToState extends State<HowTo> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                Text('寝る前に少しの操作だけ！',
+                Text('アルコールは入眠前の3時間以内に\n摂取すると中途覚醒を起こしてしまう\nこのため、睡眠効率が悪くなる',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.passionsConflict(
                       color: Colors.grey[200],
                       fontSize: 15,
                     )),
-                Text('それだけで自分にとってより良い睡眠方法が分かる！',
+                Text('カフェインは入眠前の3時間以内に摂取するとを寝付けない時間が増えてしまうため、睡眠効率が悪くなる',
+                    textAlign: TextAlign.center,
+                    style: GoogleFonts.passionsConflict(
+                      color: Colors.grey[200],
+                      fontSize: 15,
+                    )),
+                Text(
+                    '現在、日本の4割が平均睡眠時間は6時間未満と、世界一眠らない国となっており、これを占めているのは成人済みの人達の傾向にある',
                     textAlign: TextAlign.center,
                     style: GoogleFonts.passionsConflict(
                       color: Colors.grey[200],

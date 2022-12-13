@@ -123,26 +123,64 @@ class _TimePickerPageState extends State<TimePickerPage> {
           ),
         ),
       ),
-      drawer: Drawer(
-        child: ListView(
-          children: [
-            ListTile(
-              title: const Text("メニュー1"),
-              onTap: () {
-                // この中にメニューをタップした時の処理を記述する
-                Navigator.push(
-                    context, MaterialPageRoute(builder: (context) => HowTo()));
-              },
-            ),
-            ListTile(
-              title: const Text("メニュー2"),
-              onTap: () {},
-            ),
-            ListTile(
-              title: const Text("メニュー3"),
-              onTap: () {},
-            )
-          ],
+      drawer: ClipRRect(
+        borderRadius: BorderRadius.only(
+            topRight: Radius.circular(20), bottomRight: Radius.circular(20)),
+        child: Drawer(
+          child: ListView(
+            children: [
+              DrawerHeader(
+                child: Container(
+                  child: Text(
+                    'カテゴリ一覧',
+                    style: TextStyle(
+                      fontSize: 30.0,
+                      color: Colors.white,
+                    ),
+                    textAlign: TextAlign.center,
+                  ),
+                  alignment: Alignment.center,
+                ),
+                decoration: BoxDecoration(color: Colors.grey[400]),
+              ),
+              ListTile(
+                title: const Text("このアプリについて"),
+                onTap: () {
+                  // この中にメニューをタップした時の処理を記述する
+                  Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => HowTo()));
+                },
+              ),
+              ListTile(
+                title: const Text("最適タイミングの使い方"),
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) {
+                      return SimpleDialog(
+                        title: Text("使い方"),
+                        children: <Widget>[
+                          // コンテンツ領域
+                          SimpleDialogOption(
+                            onPressed: () => Navigator.pop(context),
+                            child: Text(
+                                "入眠時間を指定したら起床時刻を押そう\n起床予定時間を指定したら入眠時刻を押そう\n睡眠周期に合わせた目覚めが良いタイミングが分かるよ"),
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+              ),
+              ListTile(
+                title: const Text("睡眠について"),
+                onTap: () {
+                  /*Navigator.push(context,
+                      MaterialPageRoute(builder: (context) => AboutPage()));*/
+                },
+              )
+            ],
+          ),
         ),
       ),
     );

@@ -58,7 +58,7 @@ class _HomePageState extends State<HomePage> {
     //voidがreturnが書かれていないときで、return（返り値）を付けるなら変数の型を先にして関数名
   }
 
-  //double get answer => need(); //needのreturn値が入っている
+  double get answer => need(); //needのreturn値が入っている
 
   @override
   void initState() {
@@ -108,11 +108,11 @@ class _HomePageState extends State<HomePage> {
       // prefs.setDouble('answer', answer);
 
       // double need() {
-      var dif = widget.wakeup
-          .difference(widget.sleep!)
-          .inMinutes; //widget.をつけるときは名前付き引数
-      return dif!.toDouble() - 420 ??
-          0; //returnの後にdifを返すけど、nullだった場合に??の後ろの値になる
+      //  var dif = widget.wakeup
+      //     .difference(widget.sleep!)
+      //     .inMinutes; //widget.をつけるときは名前付き引数
+      //  return dif!.toDouble() - 420 ??
+      //      0; //returnの後にdifを返すけど、nullだった場合に??の後ろの値になる
 
       //voidがreturnが書かれていないときで、return（返り値）を付けるなら変数の型を先にして関数名
       // }
@@ -120,18 +120,49 @@ class _HomePageState extends State<HomePage> {
 
     //WeightDataのリストを作成。日付と分単位時間を入れる
     final weightList = <WeightData>[
-      WeightData(DateTime(2022, 12, 2), 56),
-      WeightData(DateTime(2022, 12, 4), 23),
-      WeightData(DateTime(2022, 12, 5), 40),
-      WeightData(DateTime(2022, 12, 6), 45),
-      WeightData(DateTime(2022, 12, 7), 79),
+      WeightData(DateTime(2022, 12, 6), 56),
+      WeightData(DateTime(2022, 12, 7), 23),
       WeightData(DateTime(2022, 12, 8), 40),
+      WeightData(DateTime(2022, 12, 9), 45),
+      WeightData(DateTime(2022, 12, 10), 79),
+      WeightData(DateTime(2022, 12, 11), 40),
       WeightData(
           DateTime(widget.wakeup.year, widget.wakeup.month, widget.wakeup.day),
-          //answer
-          need()),
+          answer
+          //need()
+          ),
       //全選択したうえで、ctrl+shift+/をすれば一気にコメントアウトできる
     ];
+
+    /*void initState() {
+      getDataFromFireStore().then((results) {
+        SchedulerBinding.instance!.addPostFrameCallback((timeStamp) {
+          setState(() {});
+        });
+      });
+      super.initState();
+    }
+
+    Future<void> getDataFromFireStore() async {
+      var snapShotsValue =
+          await FirebaseFirestore.instance.collection("chartData").get();
+      List<WeightData> list = snapShotsValue.docs
+          .map((e) => WeightData(
+              x: DateTime.fromMillisecondsSinceEpoch(
+                  e.data()['x'].millisecondsSinceEpoch),
+              y: e.data()['y']))
+          .toList();
+      setState(() {
+        weightData = list;
+      });
+    }
+
+    // Class for chart data source, this can be modified based on the data in Firestore
+    class WeightData {
+    WeightData({this.x, this.y});
+    final DateTime? x;
+    final int? y;
+    }*/
 
     //上のリストからグラフに表示させるデータを生成
     List<charts.Series<WeightData, DateTime>> _createWeightData(
